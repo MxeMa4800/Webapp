@@ -1,0 +1,476 @@
+* {
+    /* background-color: white; */
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+.container {
+    transition: filter 0ms ease-in-out 300ms;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1.3fr;
+    grid-template-rows: 0.1fr 1fr 1fr;
+    grid-template-areas: 
+    "nav nav nav"
+    "stream-box stream-box select-box"
+    "Eventlog Eventlog Eventlog";
+    /* grid-gap: 1.5rem; */
+}
+@media (max-width: 720px){
+    .container{
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        "nav nav nav"
+        "stream-box stream-box stream-box"
+        "select-box select-box select-box"
+        "Eventlog Eventlog Eventlog";
+        /* grid-gap: 1.5rem; */
+    }
+}
+
+/* Section 1 */
+nav {
+    grid-area: nav;
+    background-color: #ffd166;
+}
+nav .tab .Logo1 {
+    /* top right bottom left */
+    margin: 0.5rem 0 0.1rem 1rem;
+    width: 2.5rem !important;
+    height: auto;
+}
+nav .tab .Logo2 {
+    /* top right bottom left */
+    margin: 0.5rem 0 0.3rem 0;
+    width: 8rem !important;
+    height: auto;
+}
+nav .tab .Logo3 {
+    /* top right bottom left */
+    margin: 0.5rem 0 0.2rem 0;
+    width: 8rem !important;
+    height: auto;
+}
+
+.stream-box {
+    grid-area: stream-box;
+    background-color: gray;
+    padding: 1.5rem 0 0 1rem ;
+}
+.video1 {
+    /* padding: 1rem; */
+    width: 98%;
+    aspect-ratio: 16 / 9;
+    border-radius: 7px
+}
+.select-box {
+    grid-area: select-box;
+    background-color: blueviolet;
+    /* border-radius: 7px; */
+}
+.button-box {
+    margin: 1.5rem 1rem;
+    /* top right bottom left */
+    padding: 1rem 1rem 1rem;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.button {
+    border: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 12px;
+    background-color: #cddce3;
+}
+.button1 {
+    padding: 20px 60px;
+    color: black; 
+}
+.button1:hover {
+    background-color: #dae7e7;
+    color: rgb(0, 0, 0);
+}
+
+.button2 {
+    padding: 20px 60px;
+    margin: 0.5rem 0;
+    color: black; 
+}
+i {
+    margin-right: 0.5rem;
+}
+.button2:hover {
+    background-color: #dae7e7;
+    color: rgb(0, 0, 0);
+}
+
+.button3 {
+    padding: 20px 60px;
+    color: black; 
+}
+.button3:hover {
+    background-color: #dae7e7;
+    color: rgb(0, 0, 0);
+}
+
+.Eventlog {
+    grid-area: Eventlog;
+    background-color: aquamarine;
+}
+.box-event {
+    background-color: #e1e7e9;
+    border-radius: 7px;
+    margin:0.5rem 1rem;
+}
+
+.bar-even {
+    display:flex ;
+    width: 100%;
+}
+.name-box {
+    width: 80%;
+}
+.title-three {
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 22px;
+    /* top right bottom left */
+    padding: 0.5rem 1rem 0 1rem;
+}
+.search-box {
+    width: 20%;
+}
+.log-search {
+    margin: 0.5rem 0.5rem 0.2rem 0.5rem;
+    padding: 0 0.5rem 0 2rem;
+    /* background-color: rgb(255, 255, 255); */
+}
+.search-but {
+    background-color: #073b4c; 
+    padding: 0.3rem 0 0.3rem 0;
+    color: white; 
+    border: 2px solid #000000;
+    border-radius: 12px;
+}
+.search-but:hover {
+    background-color: #dae7e7;
+    color: rgb(0, 0, 0);
+}
+
+.img-box {
+    margin: 0 1rem;
+    /* background-color: palevioletred; */
+}
+.media-scroller {
+    display: flex;
+    flex-wrap: nowrap;
+    border-style: solid;
+    overflow-x: hidden;
+    cursor: grab;
+}
+.media-element {
+    scroll-snap-align: start;
+    margin: 0 2rem 0.2rem 0;
+    max-width: 300px;
+    padding: 0.5rem;
+    border-radius: 7px;
+    /* background-color: #ffd166; */
+}
+
+.media-element:hover {
+    background-color: lightgrey;
+}
+.media-element > img{
+    height: 150px;
+    width: 300px;
+    border-radius: 7px;
+    object-fit: cover;
+}
+.title-img {
+    padding: 0.5rem 0 0.2rem 0.5rem;
+    font-size: 16px;
+}
+.date {
+    font-size: 14px;
+    padding: 0 0 0.2rem 0.5rem;
+}
+
+/* popup roi */
+.popup-ROI {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 5px lightgrey;
+    /* เลื่อนป๊อปอัปขึ้นเล็กน้อยจากตำแหน่งเริ่มต้น */
+    margin-top: -25px; 
+    opacity: 0;
+    transition:
+    top 0ms ease-in-out 300ms,
+    opacity 300ms ease-in-out,
+    margin-top 300ms ease-in-out;
+
+}
+
+.popup-ROI .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    /* ขนาดของปุ่มปิดคือ 20x20 พิกเซล */
+    width: 20px;
+    height: 20px;
+    background: #70badc;
+    color: #000;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.popup-ROI > * {
+    margin: 15px 0px;
+}
+.popup-ROI .ROI-Box {
+    padding: 0 1rem 0 1rem;
+    /* background-color: #073b4c; */
+}
+.ROI-Box .ROI-img {
+    border-radius: 7px;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+.ROI-btn {
+    /* background-color: #ffd166; */
+    display: flex;
+    justify-content: center; 
+}
+.popup-btn {
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    display: inline-block;
+    font-size: 12px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: #cddce3;
+}
+.popup-btn:hover {
+    background-color: #dae7e7;
+    color: rgb(0, 0, 0);
+}
+body.active-popup {
+    overflow: hidden;
+}
+body.active-popup .container {
+    /* filter: blur(3px); */
+    filter: none;
+    transition: filter 0ms ease-in-out 0ms;
+}
+body.active-popup .popup-ROI {
+    top: 50%;
+    opacity: 1;
+    margin-top: 0;
+    transition:
+    top 0ms ease-in-out 0ms,
+    opacity 300ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+/* popup Evenlog */
+.popup-Event {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 5px lightgrey;
+    /* เลื่อนป๊อปอัปขึ้นเล็กน้อยจากตำแหน่งเริ่มต้น */
+    margin-top: -25px; 
+}
+.popup-Event .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    /* ขนาดของปุ่มปิดคือ 20x20 พิกเซล */
+    width: 20px;
+    height: 20px;
+    background: #70badc;
+    color: #000;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.popup-Event > * {
+    margin: 15px 0px;
+}
+.popup-Event .Event-img {
+    padding: 2rem 1rem 0 1rem;
+}
+.Event-img > img {
+    border-radius: 7px;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+/* popup showmore */
+.popup-search {
+    /* display: none; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    height: 550px;
+    padding: 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 5px lightgrey;
+}
+.box-search {
+    margin: 0.5rem;
+    /* background-color: #073b4c; */
+    display: flex;
+    align-items: center;
+}
+.box-search .search-icon{
+    font-size: 20px;
+    /* background-color: #e33c3c; */
+}
+.box-search .download-icon {
+    /* background-color: #e33c3c; */
+    margin-left: 12px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.search {
+    width: max-content;
+    align-items: center;
+    padding: 14px;
+    border-radius: 28px;
+    background: #f6f6f6;
+    transition: box-shadow 0.25s;
+}
+.search:focus-within {
+    box-shadow: 0 0 2px rgb(0, 0, 0, 0.75);
+}
+.search-input {
+    width: 300px;
+    font-size: 16px;
+    /* background-color: #ffd166; */
+    border-radius: 7px;
+    font-family: 'Lexend',sans-serif;
+    color: #000;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    background: transparent;
+    flex: 1;
+}
+.box-search .close-btn {
+    position: absolute;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+    /* ขนาดของปุ่มปิดคือ 20x20 พิกเซล */
+    width: 20px;
+    height: 20px;
+    /* background: #70badc; */
+    color: #000;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.search-input::placeholder,.search-icon {
+    color: rgb(0, 0, 0, 0.25);
+}
+.bar-element {
+    display: flex;
+    background: #f6f6f6;
+    border-radius: 7px;
+}
+.bar-element > div {
+    display: flex;
+    flex-grow: 1;
+    align-items: center; /* จัดข้อความให้อยู่กึ่งกลางแนวตั้ง */
+    justify-content: center; /* จัดข้อความให้อยู่กึ่งกลางแนวนอน */
+}
+/* .showmore-img {
+    background-color: #073b4c;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.popup-slider {
+    scroll-snap-align: start;
+    display: flex;
+    flex-grow: 1;
+    margin: 4px;
+    border-radius: 7px;
+    background: #f6f6f6
+} */
+.showmore-img {
+    display: flex;
+    flex-wrap: nowrap;
+    /* border-style: solid; */
+    /* overflow-x: hidden; */
+    /* background-color: #ffd166; */
+    flex-direction: column;
+    /* margin: 0 0 1rem 0; */
+    /* padding: 0 0 1rem 0; */
+    /* margin: 1rem; */
+    /* overflow-y: auto; */
+    /* cursor: grab; */
+}
+.popup-slider{
+    scroll-snap-align: start;
+    display: flex;
+    flex-grow: 1;
+    margin: 4px;
+    border-radius: 7px;
+    background: #f6f6f6
+    /* scroll-snap-align: start;
+    margin: 0 2rem 0.2rem 0;
+    max-width: 300px;
+    padding: 0.5rem;
+    border-radius: 7px; */
+    /* background-color: #ffd166; */
+}
+
+.popup-slider > img {
+    width: 30%;
+    border-radius: 7px;
+    aspect-ratio: 16/9;
+}
+.popup-slider .title-img{
+    font-size: 12px;
+    padding:  2rem 1.8rem;
+    /* background-color: #60b757; */
+}
+.popup-slider .date{
+    font-size: 12px;
+    padding:  2rem 0.2rem;
+    /* background-color: #9c8b46; */
+}
